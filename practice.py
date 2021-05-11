@@ -6,6 +6,25 @@ phonebook = {
   'Marge': '645-934-3425'
 
 }
+
+def one():
+  search = input("What contact are you looking for?")
+  return phonebook[search]
+
+def two():
+  name = str(input('Enter contact name: '))
+  number = str(input('Enter contact number: '))
+  phonebook[name] = number
+  return phonebook[name]
+
+def three():
+  name = input("what contact do you want to delete? ")
+  del phonebook[name]
+  return "Contact %s deleted." % (name)
+
+def four():
+  print(phonebook)
+
 run = True
 
 while run == True:
@@ -19,37 +38,16 @@ while run == True:
   action = int(input('What to do:'))
 
   if action == 1:
-      search = input("What contaact are you looking for?")
-      if search == 'Alice' or 'alice':
-        print(phonebook['Alice'])
-      elif search == 'Bob' or 'bob':
-        print(phonebook['Bob'])
-      elif search == 'Elizabeth' or 'elizabeth':
-        print(phonebook['Elizabeth'])
-      elif search == 'James' or 'james':
-        print(phonebook['James'])
-      elif search == 'Marge' or 'marge':
-        print(phonebook['Marge'])
-      else:
-        print('Invalid Input')
+    print(one())
 
   elif action == 2:
-      name = str(input('Enter contact name: '))
-      number = str(input('Enter contact number: '))
-      contact = (name, number)
-
-      phonebook[contact] = {
-        name, number
-      }
-      print(contact)
+    print(two())
 
   elif action == 3:
-      name = str(input("what contact do you want to delete? "))
-      del phonebook[name]
-      print("Contact %s deleted." % (name))
+    print(three())
 
   elif action == 4:
-      print(phonebook)
+    print(four())
 
   else:
     if action == 5:
